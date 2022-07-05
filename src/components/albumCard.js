@@ -8,13 +8,12 @@ class CardAlbum extends Component {
     return (
       <div key={ album.collectionName }>
         <img src={ album.artworkUrl100 } alt="" />
-        <p>{ album.collectionName }</p>
         <p>{ album.artistName }</p>
         <Link
           data-testid={ `link-to-album-${album.collectionId}` }
           to={ `/album/${album.collectionId}` }
         >
-          { album.collectionId }
+          { album.collectionName }
         </Link>
       </div>
     );

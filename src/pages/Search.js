@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 
 import searchAlbumsAPI from '../services/searchAlbumsAPI';
-// import Loading from '../components/Loading';
 
 import Header from '../components/Header';
 import Loading from '../components/Loading';
-import CardAlbum from '../components/CardAlbum';
+import AlbumCard from '../components/albumCard';
 
 class Search extends Component {
   constructor() {
@@ -13,7 +12,6 @@ class Search extends Component {
 
     this.state = {
       artist: '',
-      // isLoading: true,
       albumList: undefined,
       showInput: true,
       artistName: undefined,
@@ -74,7 +72,7 @@ class Search extends Component {
             <h3>
               Resultado de álbuns de:
               {' '}
-              { artistName }
+              { artistName.toUpperCase() }
             </h3>
           )}
 
@@ -82,7 +80,7 @@ class Search extends Component {
           albumList.length === 0
             ? 'Nenhum álbum foi encontrado'
             : albumList.map((album) => (
-              <CardAlbum key={ album.collectionId } album={ album } />
+              <AlbumCard key={ album.collectionId } album={ album } />
             ))
         )}
       </div>
