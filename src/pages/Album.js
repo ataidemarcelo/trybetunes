@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import musicsAPI from '../services/musicsAPI';
+import getMusics from '../services/musicsAPI';
 
 import Header from '../components/Header';
 import Loading from '../components/Loading';
@@ -25,7 +25,7 @@ class Album extends Component {
     const { params } = match;
     const { id } = params;
 
-    const result = await musicsAPI(id);
+    const result = await getMusics(id);
     this.setState({ album: result });
   }
 
