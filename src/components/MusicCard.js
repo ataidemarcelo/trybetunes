@@ -20,6 +20,10 @@ class MusicCard extends Component {
     this.getFavoriteSongsStorage();
   }
 
+  componentWillUnmount() {
+    this.setState = () => false;
+  }
+
   getFavoriteSongsStorage = async () => {
     const result = await getFavoriteSongs();
     this.setState({ favoriteSongs: result });
@@ -95,11 +99,7 @@ class MusicCard extends Component {
 }
 
 MusicCard.propTypes = {
-  music: PropTypes.shape({
-    trackId: PropTypes.number.isRequired,
-    trackName: PropTypes.string.isRequired,
-    previewUrl: PropTypes.string.isRequired,
-  }).isRequired,
+  music: PropTypes.shape().isRequired,
 };
 
 export default MusicCard;
